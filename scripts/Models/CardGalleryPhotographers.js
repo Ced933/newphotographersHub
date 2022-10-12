@@ -1,13 +1,17 @@
+
+
+
 class CardGalleryPhotographer extends Photographers {
     constructor(media, name) {
-        this._id = media.id
-        this._photographerId = media.photographerId
-        this._title = media.title
-        this._image = media.image
-        this._likes = media.likes
-        this._date = media.date
-        this._price = media.price
-        super(name)
+        super(name);
+        this._id = media.id;
+        this._photographerId = media.photographerId;
+        this._title = media.title;
+        this._image = media.image;
+        this._likes = media.likes;
+        this._date = media.date;
+        this._price = media.price;
+
     }
     get id() {
         return this._id

@@ -27,21 +27,41 @@ class PhotographersCard {
         photographerHeader.classList.add('.photograph-header');
         const headerPhotographer = `
       
-       
-        <div id="photographer">
-        <h2 id="h2-photographer-page">${this._photographer.name}</h2>
+       <div class="container-header">
+        <div class="photograph-header">
+        <h2 class="photograph-header-h2">${this._photographer.name}</h2>
         <h3 id="h3-photographer-page">${this._photographer.city},${this._photographer.country}</h3>
         <p id="quote-photographer-page">${this._photographer.tagline}</p> 
         </div>
         <button class="contact_button" onclick="displayModal()"> Contactez-moi</button>
         <div id="div-img">
 
-        <img src="${this._photographer.portrait}">
+        <img class="photograph-header-img" src="../assets/photographers/${this._photographer.portrait}">
 
+        </div>
         </div>
       
       `
         photographerHeader.innerHTML = headerPhotographer
         return photographerHeader
     }
+
+    // allCardsOfPhotographers() {
+    //     const sectionCards = document.createElement('figure');
+
+    //     const cards = `
+
+    //     <img src="${this._photographer.image}" class="img-gallery">
+    //         <figcaption>
+    //             <h3 class="h3-figcaption">${this._photographer.title}</h3>
+    //             <div>
+    //                 <h4 class="singleLike">${this._photographer.likes}</h4><i class="fa-solid fa-heart"></i>
+    //             </div>
+    //         </figcaption>
+
+    // `
+    //     sectionCards.innerHTML = cards;
+    //     return sectionCards;
+    // }
+
 }

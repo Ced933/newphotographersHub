@@ -3,20 +3,22 @@
 }
 
 #main {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     position: relative;
 }
 
-.photograph-header {
+.container-header {
     background-color: #FAFAFA;
     height: 300px;
-
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    padding: 0 60px;
+    justify-content: space-around;
+
     align-items: center;
 }
+
+
 
 /*-------------------------------------- header page id ------------------------------------ */
 .photograph-header #photographer h2 {
@@ -26,6 +28,14 @@
     font-weight: lighter;
 }
 
+.photograph-header-h2 {
+    color: #D3573C;
+    font-size: 36px;
+    margin: 15px 0 0 0;
+    font-weight: lighter;
+}
+
+/* ----------- */
 .photograph-header #div-img img {
     height: 200px;
     width: 200px;
@@ -34,11 +44,25 @@
     object-fit: cover;
 }
 
+.photograph-header-img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 10px #95969D;
+    object-fit: cover;
+}
 
+/* ---------- */
 .photograph-header #photographer h3 {
     color: #901C1C;
     font-size: 16px;
     margin: 0;
+}
+
+#h3-photographer-page {
+    color: #901C1C;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
 .contact_button {

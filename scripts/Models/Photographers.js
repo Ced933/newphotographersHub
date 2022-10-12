@@ -1,13 +1,13 @@
 class Photographers {
-    // faire attention a ne pas mettre les propriété dans le constructor car il mettra le tout l'object dans le 1ere element 
-    constructor(photographers) {
-        this._name = photographers.name;
-        this._id = photographers.id;
-        this._city = photographers.city;
-        this._country = photographers.country;
-        this._tagline = photographers.tagline;
-        this._price = photographers.price;
-        this._portrait = photographers.portrait;
+    //  faire attention a ne pas mettre les propriété dans le constructor car il mettra le tout l'object dans le 1ere element 
+    constructor(data) {
+        this._name = data.name;
+        this._id = data.id;
+        this._city = data.city;
+        this._country = data.country;
+        this._tagline = data.tagline;
+        this._price = data.price;
+        this._portrait = data.portrait;
     }
     get name() {
         return this._name

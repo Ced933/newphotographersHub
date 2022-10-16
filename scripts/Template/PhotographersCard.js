@@ -46,22 +46,22 @@ class PhotographersCard {
         return photographerHeader
     }
 
-    // allCardsOfPhotographers() {
-    //     const sectionCards = document.createElement('figure');
+    allCardsOfPhotographers() {
+        const sectionCards = document.createElement('figure');
 
-    //     const cards = `
+        const cards = `
 
-    //     <img src="${this._photographer.image}" class="img-gallery">
-    //         <figcaption>
-    //             <h3 class="h3-figcaption">${this._photographer.title}</h3>
-    //             <div>
-    //                 <h4 class="singleLike">${this._photographer.likes}</h4><i class="fa-solid fa-heart"></i>
-    //             </div>
-    //         </figcaption>
+        <img src="assets/SamplePhotos/${this._photographer.name}/${this._photographer.image}" class="img-gallery">
+            <figcaption>
+                <h3 class="h3-figcaption">${this._photographer.title}</h3>
+                <div>
+                    <h4 class="singleLike">${this._photographer.likes}</h4><i class="fa-solid fa-heart"></i>
+                </div>
+            </figcaption>
 
-    // `
-    //     sectionCards.innerHTML = cards;
-    //     return sectionCards;
-    // }
+    `
+        sectionCards.innerHTML = cards;
+        return sectionCards;
+    }
 
 }

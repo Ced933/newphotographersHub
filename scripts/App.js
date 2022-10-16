@@ -42,9 +42,9 @@ class App {
         const ArrSameId = photographerHeader.media.filter(media => idPhotographer == media.photographerId);
         console.log(ArrSameId);
 
-        ArrSameId.forEach(ArrSameId => {
-            console.log(ArrSameId)
-            const cardTemplate = new CardGalleryPhotographer(ArrSameId);
+        ArrSameId.map(media => {
+            console.log(media)
+            const cardTemplate = new PhotographersCard(media);
             this.sectionCards.appendChild(cardTemplate.allCardsOfPhotographers())
         })
 

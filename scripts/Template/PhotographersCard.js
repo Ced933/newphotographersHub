@@ -8,7 +8,7 @@ class PhotographersCard {
         const photographerSection = document.createElement('div');
         photographerSection.classList.add('.photographer_section_article');
         const photographerCard = `
-        <a href="photographer.html?id=${this._photographer.id}">
+        <a class="link-article" href="photographer.html?id=${this._photographer.id}">
         <article>
             <img src="${this._photographer.portrait}" alt="${this._photographer.name}">
             <h2>${this._photographer.name}</h2>
@@ -48,10 +48,10 @@ class PhotographersCard {
 
     allCardsOfPhotographers() {
         const sectionCards = document.createElement('figure');
+        // condition ternaire  pour faire apparaitre soit l'image soit la vidéo 
+        const cards = this._photographer.hasOwnProperty('image') ? `
 
-        const cards = `
-
-        <img src="assets/SamplePhotos/${this._photographer.name}/${this._photographer.image}" class="img-gallery">
+        <img onclick="popUp()" src="assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.image}"  class="img-gallery">
             <figcaption>
                 <h3 class="h3-figcaption">${this._photographer.title}</h3>
                 <div>
@@ -59,9 +59,21 @@ class PhotographersCard {
                 </div>
             </figcaption>
 
-    `
+    ` : `
+
+    <video src="assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.video}" class="img-gallery"></video>
+        <figcaption>
+            <h3 class="h3-figcaption">${this._photographer.title}</h3>
+            <div>
+                <h4 class="singleLike">${this._photographer.likes}</h4><i class="fa-solid fa-heart"></i>
+            </div>
+        </figcaption>
+
+`
         sectionCards.innerHTML = cards;
         return sectionCards;
     }
+
+
 
 }

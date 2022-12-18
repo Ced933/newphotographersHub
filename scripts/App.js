@@ -22,6 +22,10 @@ class App {
 
         // 
 
+
+
+
+
     }
     async header() {
         const photographerHeader = await this.photographerApi.getPhotographers();
@@ -40,33 +44,19 @@ class App {
 
 
         const ArrSameId = photographerHeader.media.filter(media => idPhotographer == media.photographerId);
-        console.log(ArrSameId);
+        // console.log(ArrSameId);
 
         ArrSameId.map(media => {
-            console.log(media)
+            // console.log(media)
             const cardTemplate = new PhotographersCard(media);
             this.sectionCards.appendChild(cardTemplate.allCardsOfPhotographers())
         })
 
-        // photographerHeader.media.filter(media => {
-        //     if (idPhotographer == media.photographerId) {
-        //         console.log(media);
-        //         const cardTemplate = new CardGalleryPhotographer(media);
 
-        //         this.sectionCards.appendChild(cardTemplate.allCardsOfPhotographers())
-        //     }
 
-        // })
+
     }
 
-    // async cardsOfPhotographers() {
-    //     const SectionAllCards = await this.photographerApi.getPhotographers();
-    //     console.log(SectionAllCards.media)
-    //     SectionAllCards.media.forEach(media => {
-    //         const Template = new CardGalleryPhotographer(media)
-    //         this.sectionCards.appendChild(Template.allCardsOfPhotographers())
-    //     })
-    // }
 
 }
 

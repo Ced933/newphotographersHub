@@ -42,9 +42,8 @@ class Photographers {
 
 
 
-class CardGalleryPhotographer extends Photographers {
-    constructor(media, data) {
-        super(data.name);
+class CardGalleryPhotographer {
+    constructor(media) {
         this._id = media.id;
         this._photographerId = media.photographerId;
         this._title = media.title;
@@ -64,9 +63,7 @@ class CardGalleryPhotographer extends Photographers {
     get title() {
         return this._title
     }
-    get image() {
-        return `assets/SamplePhotos/${this._name}/${this._image}`
-    }
+
     get likes() {
         return this._likes
     }
@@ -75,6 +72,11 @@ class CardGalleryPhotographer extends Photographers {
     }
     get price() {
         return this._price
+    }
+
+
+    get image() {
+        return `assets/SamplePhotos/${this._photographerId}/${this._image}`
     }
 
 }

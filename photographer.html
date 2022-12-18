@@ -15,6 +15,41 @@
 
 <body>
 
+
+
+
+  <div id="contact_modal">
+    <div class="modal">
+      <header>
+        <h2>Contactez-moi</h2>
+        <img src="assets/icons/close.svg" onclick="closeModal()" />
+      </header>
+      <form id="photographer-form">
+        <div>
+          <label>Prénom</label>
+          <input type="text" id="firstname" name="firstname" value="" />
+          <div id="message-one" class="message-fn-wrong"></div>
+        </div>
+        <div>
+          <label>Nom</label>
+          <input type="text" id="lastname" name="lastname" />
+          <div id="message-two" class="message-fn-wrong"></div>
+        </div>
+        <div>
+          <label>Mail</label>
+          <input type="email" id="mail" name="mail" />
+          <div id="message-three" class="message-fn-wrong"></div>
+        </div>
+        <div>
+          <label>Message</label>
+          <textarea name="message" id="message" cols="" rows="5"></textarea>
+          <div id="message-four" class="message-fn-wrong"></div>
+        </div>
+        <button type="submit" id="btn-submit" class="contact_button">Envoyer</button>
+      </form>
+    </div>
+  </div>
+
   <div class="body-gallery">
     <div class="div-gallery-active">
 
@@ -40,19 +75,12 @@
 
   </header>
 
-
-
-
-
-
-
-
-
   <div class="gallery-wrap">
 
     <main id="main">
       <div id="sticky-price" class="sticky-price">
         <div class="div-heart-total">
+          <!-- où va être affiché le total de like   -->
           <h4 id="total-likes"></h4><i class="fa-solid fa-heart"></i>
         </div>
         <!-- <p id="price-by-day">300€/jour</p> -->
@@ -63,34 +91,18 @@
       <div id="section-header">
 
       </div>
-      <!-- <div id="photograph-header" class="photograph-header">
-        <div id="photographer"> -->
-      <!-- <h2 id="h2-photographer-page"></h2>
-        <h3 id="h3-photographer-page">Londre, UK</h3>
-        <p id="quote-photographer-page">Vois le beau dans le quotidien</p> -->
-      <!-- </div>
-        <button class="contact_button" onclick="displayModal()"> Contactez-moi</button>
-        <div id="div-img">
 
-        </div>
-      </div> -->
-      <div>
-        <p>trier par</p>
+      <div class="div-select">
+        <p>Trier par</p>
         <select id="select" onchange="sortAlphabetic()">
-          <option value="">-- choose -- </option>
           <option value="popular">Popularité</option>
           <option value="date">Date</option>
+          <option value="title">Titre</option>
           <option value="title">Titre</option>
         </select>
       </div>
 
-
       <div id="container-gallery" class="container-gallery">
-
-
-
-
-
 
       </div>
     </main>
@@ -98,33 +110,9 @@
       <img src="" alt="">
 
     </div>
-    <div id="contact_modal">
-      <div class="modal">
-        <header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-        <form>
-          <div>
-            <label>Prénom</label>
-            <input type="text" />
-          </div>
-          <div>
-            <label>Nom</label>
-            <input type="text" />
-          </div>
-          <div>
-            <label>Mail</label>
-            <input type="email" />
-          </div>
-          <div>
-            <label>Message</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-          </div>
-          <button class="contact_button">Envoyer</button>
-        </form>
-      </div>
-    </div>
+
+
+
 
     <script src="scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
@@ -141,8 +129,8 @@
     <!-- Template -->
     <script src="scripts/Template/PhotographersCard.js"></script>
     <script src="scripts/Template/allCardsOfPhotographers.js"></script>
-
-
+    <!-- function -->
+    <script src="scripts/utils/functions.js"></script>
 </body>
 
 </html>

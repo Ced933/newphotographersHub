@@ -73,24 +73,17 @@ photographerForm.addEventListener("submit", function (e) {
         messageErrorTextArea.textContent = "";
         console.log(message.value);
     }
-
+    // Pour éviter que la page se recharge 
     e.preventDefault();
     // remettre les champs à 0
     firstname.value = "";
     lastname.value = "";
     email.value = "";
     message.value = "";
-    // console.log(firstname.value, lastname.value, email.value, message.value);
+
 });
 
-// if (firstname.value === '') {
-//     btnSubmit.addEventListener("click", function (e) {
-//         e.preventDefault();
-//     })
 
-// } else {
-//     return true
-// }
 
 
 

@@ -51,10 +51,57 @@ close.onclick = function () {
 
 }
 
+// let dropdown = document.querySelector('#dropdown');
+// let selectBtn = document.querySelector('.selecto');
 
 
+// dropdown.onclick = function () {
+//     if (selectBtn.style.display === "none") {
+//         selectBtn.style.display = "block";
+//     } else {
+//         selectBtn.style.display = "none";
+//     }
+// }
+
+const dropdowns = document.querySelectorAll('.dropdown');
 
 
+dropdowns.forEach(dropdown => {
+    const select = dropdown.querySelector('.select');
+
+    const menu = dropdown.querySelector('.menu');
+    const options = dropdown.querySelectorAll('.menu li');
+    const selected = dropdown.querySelector('.selected');
+
+    console.log(dropdown);
+
+    select.addEventListener('click', () => {
+
+
+        menu.classList.toggle('menu-open');
+
+    });
+    options.forEach(option => {
+        option.addEventListener('click', () => {
+            selected.innerText = option.innerText;
+
+
+            menu.classList.remove('menu-open');
+
+
+        });
+    });
+});
+// let date = document.querySelector("#date");
+
+
+// let photographerimg = document.querySelectorAll("img-gallery");
+// console.log(photographerimg);
+  // let date = document.querySelector("#date");
+        // console.log(data);
+        // date.addEventListener('click', () => {
+        //     alert('ok');
+        // })
 
 
 

@@ -1,6 +1,3 @@
-// fetch('./data/photographers.json')
-//     .then(res => res.json())
-//     .then(data => console.log(data.media[1].likes));
 
 
 let leftArrow = document.querySelector('.left-arrow');
@@ -24,9 +21,9 @@ function popUp() {
         bodyGallery.style.display = "block";
         // pour faire apparaitre la photo sur laquelle on a cliqué
         let imageAlone = document.querySelector("#img-alone");
+        // let path = `assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.image}`;
 
-
-        let path = `./assets/SamplePhotos/${idPhotographer}/${imageAlone.src.JSON.parse()}`;
+        let path = `./assets/SamplePhotos/${idPhotographer}/${imageAlone}`;
 
         // creé un tableau
         imageAlone.setAttribute('src', path);
@@ -41,31 +38,32 @@ function popUp() {
 }
 
 // fermer la popup
-close.onclick = function () {
+
+
+close.addEventListener('click', () => {
     if (bodyGallery.style.display === "none") {
         bodyGallery.style.display = "block";
     }
     else {
         bodyGallery.style.display = "none";
     }
-
-}
-
-// let dropdown = document.querySelector('#dropdown');
-// let selectBtn = document.querySelector('.selecto');
+})
 
 
-// dropdown.onclick = function () {
-//     if (selectBtn.style.display === "none") {
-//         selectBtn.style.display = "block";
-//     } else {
-//         selectBtn.style.display = "none";
-//     }
-// }
+
+
+
+
+
+
+
+
+// SELECT 
 
 const dropdowns = document.querySelectorAll('.dropdown');
+// selection tous les dropdown
 
-
+// pour chaque dropdowns
 dropdowns.forEach(dropdown => {
     const select = dropdown.querySelector('.select');
 
@@ -74,13 +72,14 @@ dropdowns.forEach(dropdown => {
     const selected = dropdown.querySelector('.selected');
 
     console.log(dropdown);
-
+    // au clique sur le select tu m'ouvre le menu si je reclique dessus tu le ferme
     select.addEventListener('click', () => {
 
 
         menu.classList.toggle('menu-open');
 
     });
+    // pour chaque option sur lequel tu vas cliquer tu me remplace par son nom dans le selected
     options.forEach(option => {
         option.addEventListener('click', () => {
             selected.innerText = option.innerText;

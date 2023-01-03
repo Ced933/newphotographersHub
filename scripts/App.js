@@ -53,11 +53,14 @@ class App {
             this.sectionCards.appendChild(cardTemplate.allCardsOfPhotographers())
         })
 
+        let containerGallery = document.querySelector("#container-gallery");
 
         let date = document.querySelector("#date");
         // lorsqu'on clique sur l'option date dans le select 
         date.addEventListener('click', () => {
             // ArrSameId.splice(0);
+            containerGallery.innerHTML = "";
+
             ArrSameId.sort((a, b) => {
                 // par ordre alphabétique pour les chaine de caractère
                 if (a.date < b.date) {
@@ -68,11 +71,24 @@ class App {
                 let cardTemplate = new PhotographersCard(media);
                 this.sectionCards.appendChild(cardTemplate.allCardsOfPhotographers())
             })
+
+            // Lorsqu'on change l'ordre il faut aussi actualiser les le click car sans ça il ne trouvera pas la
+            // l'image car l'ordre a changé 
+            let Allimg = document.querySelectorAll('img[class=img-gallery]')
+                .forEach(link => link.addEventListener('click', e => {
+                    // pour annuler le comportement du a qui te redirige vers un lien 
+                    e.preventDefault()
+                    let path = e.currentTarget.getAttribute('src');
+                    console.log(path);
+                    let imageAlone = document.querySelector("#img-alone");
+                    imageAlone.setAttribute('src', path);
+                }));
         })
 
         let popular = document.querySelector("#likes");
         // lorsqu'on clique sur l'option populaire dans le select 
         popular.addEventListener('click', () => {
+            containerGallery.innerHTML = "";
             // du plus grand au plus petit  
             ArrSameId.sort((a, b) => {
                 return b.likes - a.likes
@@ -81,11 +97,24 @@ class App {
                 let cardTemplate = new PhotographersCard(media);
                 this.sectionCards.appendChild(cardTemplate.allCardsOfPhotographers())
             })
+
+
+
+            let Allimg = document.querySelectorAll('img[class=img-gallery]')
+                .forEach(link => link.addEventListener('click', e => {
+                    // pour annuler le comportement du a qui te redirige vers un lien 
+                    e.preventDefault()
+                    let path = e.currentTarget.getAttribute('src');
+                    console.log(path);
+                    let imageAlone = document.querySelector("#img-alone");
+                    imageAlone.setAttribute('src', path);
+                }));
         })
 
         let title = document.querySelector("#title");
         // lorsqu'on clique sur l'option titre dans le select 
         title.addEventListener('click', () => {
+            containerGallery.innerHTML = "";
             // par ordre alphabétique pour les chaine de caractère
             ArrSameId.sort((a, b) => {
                 if (a.title < b.title) {
@@ -97,7 +126,40 @@ class App {
                 let cardTemplate = new PhotographersCard(media);
                 this.sectionCards.appendChild(cardTemplate.allCardsOfPhotographers())
             })
+
+
+            let Allimg = document.querySelectorAll('img[class=img-gallery]')
+                .forEach(link => link.addEventListener('click', e => {
+                    // pour annuler le comportement du a qui te redirige vers un lien 
+                    e.preventDefault()
+                    let path = e.currentTarget.getAttribute('src');
+                    console.log(path);
+                    let imageAlone = document.querySelector("#img-alone");
+                    imageAlone.setAttribute('src', path);
+                }));
+
+
         })
+
+
+
+        let Allimg = document.querySelectorAll('img[class=img-gallery]')
+            .forEach(link => link.addEventListener('click', e => {
+                // pour annuler le comportement du a qui te redirige vers un lien 
+                e.preventDefault()
+                let path = e.currentTarget.getAttribute('src');
+                console.log(path);
+                let imageAlone = document.querySelector("#img-alone");
+                imageAlone.setAttribute('src', path);
+            }));
+
+
+
+        // console.log(Allimg);
+        // console.log(img);
+        // img.addEventListener('click', () => {
+        //     GalleryFunction();
+        // })
 
     }
 

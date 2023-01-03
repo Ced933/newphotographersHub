@@ -50,7 +50,7 @@ class PhotographersCard {
         const sectionCards = document.createElement('figure');
         // condition ternaire  pour faire apparaitre soit l'image soit la vidéo 
         const cards = this._photographer.hasOwnProperty('image') ? `
-
+        
         <img onclick="popUp()" src="assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.image}"  class="img-gallery">
             <figcaption>
                 <h3 class="h3-figcaption">${this._photographer.title}</h3>
@@ -74,6 +74,31 @@ class PhotographersCard {
         return sectionCards;
     }
 
+    //     GalleryFunction() {
+
+    //         const containerGallery = document.createElement('div');
+    //         const galleryLightBox = ` 
+    //     <div class="div-gallery-active">
+
+    //     </div>
+    //     <img class="left-arrow" src="left-arrow.png" onclick="prev()" alt="">
+    //     <img class="right-arrow" src="right-arrow.png" onclick="next()" alt="">
+    //     <img class=" close" src="close.png" alt="">
+
+    //     <div class="middle">
+    //       <img class="gallery-active" id="img-alone" src="assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.image}" alt="">
+    //       <div>
+    //         <h5 class="h5-gallery">${this._photographer.title}</h5>
+    //       </div>
+
+
+    //     </div>
+
+    //   `
+    //         containerGallery.innerHTML = galleryLightBox;
+    //         return containerGallery;
+
+    //     }
 
 
 }

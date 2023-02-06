@@ -56,14 +56,15 @@
     <div class="div-gallery-active">
 
     </div>
-    <img class="left-arrow" src="left-arrow.png" onclick="prev()" alt="">
-    <img class="right-arrow" src="right-arrow.png" onclick="next()" alt="">
+    <img class="left-arrow" src="left-arrow.png" alt="">
+    <img class="right-arrow" src="right-arrow.png" alt="">
     <img class=" close" src="close.png" alt="">
 
     <div class="middle">
       <img class="gallery-active" id="img-alone" src="" alt="">
-      <div>
-        <h5 class="h5-gallery">Travel Adventure door</h5>
+      <video src="" autoplay loop id="video-alone"></video>
+      <div class="div-title">
+        <h5 id="h5gallery" class="h5-gallery"></h5>
       </div>
 
 
@@ -80,16 +81,18 @@
   <div class="gallery-wrap">
 
     <main id="main">
-      <div id="sticky-price" class="sticky-price">
+      <!-- <div id="sticky-price" class="sticky-price">
         <div class="div-heart-total">
-          <!-- où va être affiché le total de like   -->
+           où va être affiché le total de like   
           <h4 id="total-likes"></h4><i class="fa-solid fa-heart"></i>
         </div>
-        <!-- <p id="price-by-day">300€/jour</p> -->
+        <p id="price-by-day">300€/jour</p> 
         <div id="price">
 
         </div>
-      </div>
+      </div> -->
+
+
       <div id="section-header">
 
       </div>
@@ -135,7 +138,8 @@
     <script src="/scripts/utils/contactForm.js"></script>
 
     <script type="text/json" src="data/photographers.json"></script>
-
+    <!-- function -->
+    <script src="scripts/utils/functions.js"></script>
     <!-- Models -->
     <script src="scripts/Models/Photographers.js"></script>
     <script src="scripts/Models/CardGalleryPhotographers.js"></script>
@@ -146,8 +150,7 @@
     <!-- Template -->
     <script src="scripts/Template/PhotographersCard.js"></script>
     <script src="scripts/Template/allCardsOfPhotographers.js"></script>
-    <!-- function -->
-    <script src="scripts/utils/functions.js"></script>
+
 </body>
 
 </html>

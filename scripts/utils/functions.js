@@ -1,36 +1,20 @@
 
 
-let leftArrow = document.querySelector('.left-arrow');
-let rightArrow = document.querySelector('.right-arrow');
+
 let close = document.querySelector('.close');
 let bodyGallery = document.querySelector('.body-gallery');
 
 
 // faire apparaitre et disparaitre la pop up gallery
-function popUp() {
-    // let myRequest = new Request("./data/photographers.json");
-    // let fetchdata = fetch(myRequest)
-    //     // 1ER then sert a convertir nos donnée qui ne sont toujours pas comprisent par le navigateur
-    //     .then(res => res.json())
-    //     .then(data);
+function popUp(path) {
+    console.log(path);
     const idPhotographer = window.location.search.slice(4);
 
     // console.log(data.media);
 
     if (bodyGallery.style.display === "none") {
         bodyGallery.style.display = "block";
-        // pour faire apparaitre la photo sur laquelle on a cliqué
-        let imageAlone = document.querySelector("#img-alone");
-        // let path = `assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.image}`;
 
-        let path = `./assets/SamplePhotos/${idPhotographer}/${imageAlone}`;
-
-        // creé un tableau
-        imageAlone.setAttribute('src', path);
-        console.log(path);
-        let middle = document.querySelector('.middle');
-        imageAlone.middle;
-        // middle.appendChild(imageAlone);
     }
     else {
         bodyGallery.style.display = "none";
@@ -91,16 +75,20 @@ dropdowns.forEach(dropdown => {
         });
     });
 });
-// let date = document.querySelector("#date");
+// function increase() {
+//     let h4 = document.querySelector('.singleLike');
+//     h4.innerHTML = ++h4.innerHTML;
+
+// }
+
+// let coeur = document.querySelector(".fa-heart");
+// console.log(coeur);
 
 
-// let photographerimg = document.querySelectorAll("img-gallery");
-// console.log(photographerimg);
-  // let date = document.querySelector("#date");
-        // console.log(data);
-        // date.addEventListener('click', () => {
-        //     alert('ok');
-        // })
-
-
+// let h4 = document.querySelector('.singleLike');
+// coeur.onclick = function () {
+//     h4.innerHTML = ++;
+//     //     displayLikes(++totalLike);
+//     //     // h4.textContent = h4;
+// }
 

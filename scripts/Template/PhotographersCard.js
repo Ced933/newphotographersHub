@@ -48,57 +48,48 @@ class PhotographersCard {
 
     allCardsOfPhotographers() {
         const sectionCards = document.createElement('figure');
-        // condition ternaire  pour faire apparaitre soit l'image soit la vidéo 
-        const cards = this._photographer.hasOwnProperty('image') ? `
+
+        // condition ternaire  pour faire apparaitre soit l'image soit la vidéo
+        // si dans dans la key tu as mediaItem et que la valeur fini par .jpg alors tu m'affiche l'image sinon la video 
+        const cards = this._photographer.mediaItem.includes('.jpg') ? `
         
-        <img onclick="popUp()" src="assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.image}"  class="img-gallery">
-            <figcaption>
-                <h3 class="h3-figcaption">${this._photographer.title}</h3>
-                <div>
-                    <h4 class="singleLike">${this._photographer.likes}</h4><i class="fa-solid fa-heart"></i>
-                </div>
-            </figcaption>
+        <img src="assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.mediaItem}"  class="img-gallery">
+        
 
     ` : `
 
-    <video src="assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.video}" class="img-gallery"></video>
-        <figcaption>
-            <h3 class="h3-figcaption">${this._photographer.title}</h3>
-            <div>
-                <h4 class="singleLike">${this._photographer.likes}</h4><i class="fa-solid fa-heart"></i>
-            </div>
-        </figcaption>
+    <video src="assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.mediaItem}" class="img-gallery"></video>
+ 
 
 `
         sectionCards.innerHTML = cards;
         return sectionCards;
     }
 
-    //     GalleryFunction() {
+    // stickyFunction() {
 
-    //         const containerGallery = document.createElement('div');
-    //         const galleryLightBox = ` 
-    //     <div class="div-gallery-active">
+    //     const containerStick = document.createElement('div');
+    //     containerStick.classList.add("sticky-price");
+    //     const StickyPrice = ` 
+    // <div id="sticky-price" class="sticky-price">
+    //     <div class="div-heart-total">
+    //     <!-- où va être affiché le total de like   -->
+    //     <h4 id="total-likes"></h4><i class="fa-solid fa-heart"></i>
+    //   </div>
+    //   <!-- <p id="price-by-day">300€/jour</p> -->
+    //   <div id="price">
 
-    //     </div>
-    //     <img class="left-arrow" src="left-arrow.png" onclick="prev()" alt="">
-    //     <img class="right-arrow" src="right-arrow.png" onclick="next()" alt="">
-    //     <img class=" close" src="close.png" alt="">
-
-    //     <div class="middle">
-    //       <img class="gallery-active" id="img-alone" src="assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.image}" alt="">
-    //       <div>
-    //         <h5 class="h5-gallery">${this._photographer.title}</h5>
-    //       </div>
-
-
-    //     </div>
+    //   </div>
+    // </div>
 
     //   `
-    //         containerGallery.innerHTML = galleryLightBox;
-    //         return containerGallery;
+    //     containerStick.innerHTML = StickyPrice;
+    //     return containerStick;
 
-    //     }
+    // }
+
+
+
 
 
 }

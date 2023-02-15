@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
   <link href="css/photographer.css" rel="stylesheet" type="text/css" />
   <meta charset="utf-8">
-  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
   <!-- Font-Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -14,8 +14,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
     integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
 </head>
+<!-- pour le sticky price  -->
 
-<body>
+<body id="body">
 
 
 
@@ -23,7 +24,7 @@
   <div id="contact_modal">
     <div class="modal">
       <header>
-        <h2>Contactez-moi</h2>
+        <h2 id="h2-form"></h2>
         <img src="assets/icons/close.svg" onclick="closeModal()" />
       </header>
       <form id="photographer-form">
@@ -61,7 +62,7 @@
     <img class=" close" src="close.png" alt="">
 
     <div class="middle">
-      <img class="gallery-active" id="img-alone" src="" alt="">
+      <img class="gallery-active" id="img-alone" src="./assets/SamplePhotos/195/Architecture_Corner_Room.jpg" alt="">
       <video src="" autoplay loop id="video-alone"></video>
       <div class="div-title">
         <h5 id="h5gallery" class="h5-gallery"></h5>
@@ -73,7 +74,7 @@
 
   <header>
     <a href="index.html">
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" alt="logo du site web" class="logo" />
     </a>
 
   </header>
@@ -81,16 +82,7 @@
   <div class="gallery-wrap">
 
     <main id="main">
-      <!-- <div id="sticky-price" class="sticky-price">
-        <div class="div-heart-total">
-           où va être affiché le total de like   
-          <h4 id="total-likes"></h4><i class="fa-solid fa-heart"></i>
-        </div>
-        <p id="price-by-day">300€/jour</p> 
-        <div id="price">
 
-        </div>
-      </div> -->
 
 
       <div id="section-header">
@@ -102,6 +94,7 @@
 
 
         <div class="dropdown">
+          <label for="">Trier par</label>
           <div class="select">
             <span class="selected">Populaire</span>
             <div id="caret" class="caret"></div>
@@ -126,6 +119,7 @@
 
       </div>
     </main>
+
     <div id="light-box">
       <img src="" alt="">
 
@@ -134,22 +128,25 @@
 
 
 
-    <script src="scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+
 
     <script type="text/json" src="data/photographers.json"></script>
     <!-- function -->
     <script src="scripts/utils/functions.js"></script>
     <!-- Models -->
-    <script src="scripts/Models/Photographers.js"></script>
-    <script src="scripts/Models/CardGalleryPhotographers.js"></script>
+
     <!-- Api -->
     <script src="scripts/api/Api.js"></script>
+
+
+
     <!-- App  -->
     <script src="scripts/App.js"></script>
+
+    <script src="/scripts/utils/contactForm.js"></script>
     <!-- Template -->
     <script src="scripts/Template/PhotographersCard.js"></script>
-    <script src="scripts/Template/allCardsOfPhotographers.js"></script>
+
 
 </body>
 

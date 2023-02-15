@@ -84,9 +84,4 @@ photographerForm.addEventListener("submit", function (e) {
 });
 
 
-
-
-
-
-
 // si tu me remplis pas les cases correctement tu me bloques le bouton envoyer 

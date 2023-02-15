@@ -72,10 +72,11 @@ h1 {
 .photographer_section article h4 {
     font-size: 12px;
     margin: 2px 0;
+    color: #000000;
 }
 
 .photographer_section article p {
     font-size: 12px;
     margin: 2px 0;
-    color: #95969D;
+    color: #000000;
 }

@@ -49,6 +49,7 @@ class PhotographersCard {
     allCardsOfPhotographers() {
         const sectionCards = document.createElement('a');
 
+
         // condition ternaire  pour faire apparaitre soit l'image soit la vidéo
         // si dans dans la key tu as mediaItem et que la valeur fini par .jpg alors tu m'affiche l'image sinon la video 
         const cards = this._photographer.mediaItem.includes('.jpg') ? `
@@ -62,6 +63,7 @@ class PhotographersCard {
  
 
 `
+        sectionCards.classList.add('a-body-link');
         sectionCards.innerHTML = cards;
         return sectionCards;
     }

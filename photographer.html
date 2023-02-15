@@ -2,50 +2,47 @@
 <html lang="fr">
 
 <head>
-  <link href="css/photographer.css" rel="stylesheet" type="text/css" />
+  <link href="css/photographer.css" rel="stylesheet" type="text/css">
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="assets/images/logo.png">
   <!-- Font-Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
   <title>Fisheye - photographe </title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
     integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
 </head>
-<!-- pour le sticky price  -->
+
 
 <body id="body">
-
-
-
-
+  <!-- FORM  -->
   <div id="contact_modal">
     <div class="modal">
       <header>
-        <h2 id="h2-form"></h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
+        <h2 id="h2-form">Contactez-moi</h2>
+        <img src="assets/icons/close.svg" alt="logo croix pour fermer le formulaire" onclick="closeModal()">
       </header>
       <form id="photographer-form">
         <div>
           <label>Prénom</label>
-          <input type="text" id="firstname" name="firstname" value="" />
+          <input type="text" id="firstname" name="firstname" value="">
           <div id="message-one" class="message-fn-wrong"></div>
         </div>
         <div>
           <label>Nom</label>
-          <input type="text" id="lastname" name="lastname" />
+          <input type="text" id="lastname" name="lastname">
           <div id="message-two" class="message-fn-wrong"></div>
         </div>
         <div>
           <label>Mail</label>
-          <input type="email" id="mail" name="mail" />
+          <input type="email" id="mail" name="mail">
           <div id="message-three" class="message-fn-wrong"></div>
         </div>
         <div>
           <label>Message</label>
-          <textarea name="message" id="message" cols="" rows="5"></textarea>
+          <textarea name="message" id="message" cols="10" rows="5"></textarea>
           <div id="message-four" class="message-fn-wrong"></div>
         </div>
         <button type="submit" id="btn-submit" class="contact_button">Envoyer</button>
@@ -53,76 +50,62 @@
     </div>
   </div>
 
+  <!-- GALLERY LIGHTBOX  -->
+
   <div class="body-gallery">
     <div class="div-gallery-active">
 
     </div>
-    <img class="left-arrow" src="left-arrow.png" alt="">
-    <img class="right-arrow" src="right-arrow.png" alt="">
-    <img class=" close" src="close.png" alt="">
+    <img class="left-arrow" src="left-arrow.png" alt="logo fleche de gauche">
+    <img class="right-arrow" src="right-arrow.png" alt="logo fleche de droite">
+    <img class=" close" src="close.png" alt="logo croix pour fermer la gallery">
 
     <div class="middle">
       <img class="gallery-active" id="img-alone" src="./assets/SamplePhotos/195/Architecture_Corner_Room.jpg" alt="">
-      <video src="" autoplay loop id="video-alone"></video>
+      <video src="./assets/SamplePhotos/195/Architecture_coverr_circle_empty_highway_in_buenos_aires_587740985637.mp4"
+        autoplay loop id="video-alone"></video>
       <div class="div-title">
-        <h5 id="h5gallery" class="h5-gallery"></h5>
+        <h5 id="h5gallery" class="h5-gallery">title</h5>
       </div>
 
 
     </div>
   </div>
-
+  <!-- HEADER  -->
   <header>
     <a href="index.html">
-      <img src="assets/images/logo.png" alt="logo du site web" class="logo" />
+      <img src="assets/images/logo.png" alt="logo du site web" class="logo">
     </a>
 
   </header>
 
-  <div class="gallery-wrap">
-
-    <main id="main">
 
 
-
-      <div id="section-header">
-
-      </div>
-      <div class="div-container-dropdown">
+  <main id="main">
 
 
 
+    <div id="section-header">
 
-        <div class="dropdown">
-          <label for="">Trier par</label>
-          <div class="select">
-            <span class="selected">Populaire</span>
-            <div id="caret" class="caret"></div>
-          </div>
-          <ul class="menu">
-            <li id="date">Date</li>
-            <li id="likes" class="active">Populaire</li>
-            <li id="title">Titre</li>
-          </ul>
+    </div>
+    <div class="div-container-dropdown">
 
+
+      <!-- DROPDOWN  -->
+
+      <div class="dropdown">
+        <label id="dropdownlabel">Trier par</label>
+        <div class="select">
+          <span class="selected">Date</span>
+          <div id="caret" class="caret"></div>
         </div>
-      </div>
-
-
-
-
-
-
-
-
-      <div id="container-gallery" class="container-gallery">
+        <ul class="menu">
+          <li id="date">Date</li>
+          <li id="likes">Populaire</li>
+          <li id="title">Titre</li>
+        </ul>
 
       </div>
-    </main>
-
-    <div id="light-box">
-      <img src="" alt="">
-
     </div>
 
 
@@ -130,22 +113,36 @@
 
 
 
-    <script type="text/json" src="data/photographers.json"></script>
-    <!-- function -->
-    <script src="scripts/utils/functions.js"></script>
-    <!-- Models -->
-
-    <!-- Api -->
-    <script src="scripts/api/Api.js"></script>
 
 
+    <div id="container-gallery" class="container-gallery">
 
-    <!-- App  -->
-    <script src="scripts/App.js"></script>
+    </div>
+  </main>
 
-    <script src="/scripts/utils/contactForm.js"></script>
-    <!-- Template -->
-    <script src="scripts/Template/PhotographersCard.js"></script>
+
+
+
+
+
+
+
+  <script type="text/json" src="data/photographers.json"></script>
+  <!-- function -->
+  <script src="scripts/utils/functions.js"></script>
+  <!-- Models -->
+
+  <!-- Api -->
+  <script src="scripts/api/Api.js"></script>
+
+
+
+  <!-- App  -->
+  <script src="scripts/App.js"></script>
+
+  <script src="/scripts/utils/contactForm.js"></script>
+  <!-- Template -->
+  <script src="scripts/Template/PhotographersCard.js"></script>
 
 
 </body>

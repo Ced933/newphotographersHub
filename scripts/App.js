@@ -13,7 +13,7 @@ class App {
         const photographersData = await this.photographerApi.getPhotographers();
 
 
-        photographersData.photographers.map(photographe => new photographe(photographe))
+        photographersData.photographers.map(photographe => new Photographers(photographe))
             .forEach(photographe => {
 
                 const Template = new PhotographersCard(photographe)
@@ -54,7 +54,9 @@ class App {
             }
 
         })
-
+        let date = document.querySelector("#date");
+        let popular = document.querySelector("#likes");
+        let title = document.querySelector("#title");
         // Pour afficher toutes les images de la gallery du photographe 
         // filtre les 59images pour ne garder que les image avec le meme id 
         let ArrSameId = photographerHeader.media.filter(media => idPhotographer == media.photographerId);
@@ -64,6 +66,10 @@ class App {
             let cardTemplate = new PhotographersCard(media);
             let figureCard = cardTemplate.allCardsOfPhotographers();
 
+            title.classList.add('d-block');
+            popular.classList.add('d-block');
+            // date.classList.remove('d-block');
+            date.classList.add('d-none');
 
             this.sectionCards.appendChild(figureCard);
             let coeur = document.createElement('i');
@@ -145,10 +151,16 @@ class App {
 
         let containerGallery = document.querySelector("#container-gallery");
 
-        let date = document.querySelector("#date");
+        // let date = document.querySelector("#date");
         // lorsqu'on clique sur l'option date dans le select 
         date.addEventListener('click', () => {
-            // ArrSameId.splice(0);
+
+
+            title.classList.add('d-block');
+            popular.classList.add('d-block');
+            date.classList.remove('d-block');
+            date.classList.add('d-none');
+
             containerGallery.innerHTML = "";
 
             ArrSameId.sort((a, b) => {
@@ -235,9 +247,14 @@ class App {
 
         })
 
-        let popular = document.querySelector("#likes");
+        // let popular = document.querySelector("#likes");
         // lorsqu'on clique sur l'option populaire dans le select 
         popular.addEventListener('click', () => {
+            title.classList.add('d-block');
+            popular.classList.remove('d-block');
+            popular.classList.add('d-none');
+            date.classList.add('d-block');
+
             containerGallery.innerHTML = "";
             // du plus grand au plus petit  
             ArrSameId.sort((a, b) => {
@@ -326,9 +343,14 @@ class App {
             lightboxclicked();
         })
 
-        let title = document.querySelector("#title");
+        // let title = document.querySelector("#title");
         // lorsqu'on clique sur l'option titre dans le select 
         title.addEventListener('click', () => {
+            title.classList.add('d-none');
+            title.classList.remove('d-block');
+            popular.classList.add('d-block');
+            date.classList.add('d-block');
+
             containerGallery.innerHTML = "";
             // par ordre alphabétique pour les chaine de caractère
             ArrSameId.sort((a, b) => {

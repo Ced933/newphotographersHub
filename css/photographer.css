@@ -461,11 +461,13 @@ figcaption div {
     min-height: 70px;
     position: relative;
     margin: 32px 32px 32px 62px;
+    display: flex;
+    align-items: center;
 
 }
 
-.dropdown£ {
-    box-sizing: border-box;
+.dropdown label {
+    margin-right: 10px;
 }
 
 .select {
@@ -506,8 +508,8 @@ figcaption div {
     border-radius: 0 0 8px 8px;
     color: #fff;
     position: absolute;
-    top: 56px;
-    left: 68px;
+    top: 42px;
+    left: 139px;
     width: 120px;
     transform: translateX(-50%);
     opacity: 0;

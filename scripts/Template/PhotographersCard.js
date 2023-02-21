@@ -76,7 +76,7 @@ class PhotographersCard {
     <div id="sticky-price" class="sticky-price">
         <div class="div-heart-total">
         <!-- où va être affiché le total de like   -->
-        <h4 id="total-likes"></h4><i aria-label="likes" class="fa-solid fa-heart"></i>
+        <h4 id="total-likes"></h4> <i aria-label="likes" class="fa-solid fa-heart"></i>
       </div>
        <p id="price-by-day">${this._photographer.price}€/jour</p> 
       <div id="price">

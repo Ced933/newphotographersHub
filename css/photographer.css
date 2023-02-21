@@ -5,13 +5,8 @@ body {
 
 
 header {
-
-
     display: flex;
-
-
     align-items: center;
-
     height: 90px;
     width: 80%;
     margin: 0 auto;
@@ -19,7 +14,6 @@ header {
 
 .logo {
     height: 50px;
-    /* margin-left: 100px; */
 }
 
 
@@ -36,7 +30,6 @@ header {
     margin: 0 auto;
     display: flex;
     justify-content: space-around;
-
     align-items: center;
 }
 
@@ -105,14 +98,9 @@ header {
     display: none;
     z-index: 10;
     position: fixed;
-    /* top: 0;
-    left: 0; */
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, .60);
-    /* display: flex; */
-
-
 }
 
 .message-fn-wrong {
@@ -132,7 +120,6 @@ header {
     justify-content: space-between;
     padding: 35px;
     margin: auto;
-
 }
 
 .modal textarea {
@@ -206,15 +193,8 @@ form input {
     margin: 0 auto;
     width: 300px;
     height: 350px;
-    /* border:1px solid  #901C1C; */
     padding: 0;
-
 }
-
-
-/* figure #div-img-overflow {
-    overflow: hidden;
-} */
 
 .a-body-link img {
     width: 300px;
@@ -257,7 +237,6 @@ figcaption div {
     margin: 0;
     margin-right: 5px;
     font-size: 18px;
-
 }
 
 .sticky-price {
@@ -282,7 +261,6 @@ figcaption div {
 
 
 .img-gallery {
-
     width: 300px;
     height: 300px;
     object-fit: cover;
@@ -305,21 +283,17 @@ figcaption div {
 }
 
 .div-gallery-active {
-
     background: #fff;
     opacity: 0.9;
     z-index: 2;
     height: 100vh;
     width: 100%;
     position: absolute;
-
-
 }
 
 .gallery-active {
     z-index: 3;
     width: 40%;
-
 }
 
 .middle {
@@ -329,15 +303,12 @@ figcaption div {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
 }
 
 #img-alone {
-    /* display: none; */
     height: 80%;
     object-fit: cover;
     width: 80%;
-
 }
 
 #video-alone {
@@ -350,8 +321,6 @@ figcaption div {
     width: 90%;
     z-index: 5;
 }
-
-
 
 .h5-gallery {
     width: 90%;
@@ -395,67 +364,11 @@ figcaption div {
     height: 70%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .link-article {
     text-decoration: none;
 }
 
-
-
 /* select  */
-
 
 .dropdown {
     min-height: 70px;
@@ -463,7 +376,6 @@ figcaption div {
     margin: 32px 32px 32px 62px;
     display: flex;
     align-items: center;
-
 }
 
 .dropdown label {
@@ -481,15 +393,11 @@ figcaption div {
     width: 100px;
     padding: 16px;
     cursor: pointer;
-    /* border-bottom: 6px solid #fff; */
-
 }
-
-
 
 .caret {
     transition: 0.3s;
-    background: url('../Vectorcaret.svg') no-repeat;
+    background: url('../assets/dropdown/Vectorcaret.svg') no-repeat;
     background-size: contain;
     width: 16px;
     height: 10px;
@@ -504,25 +412,22 @@ figcaption div {
     list-style: none;
     padding: 0.32px 8px;
     background: #901C1C;
-    /* width: 100px;  */
     border-radius: 0 0 8px 8px;
     color: #fff;
     position: absolute;
     top: 42px;
-    left: 139px;
+    left: 140px;
     width: 120px;
     transform: translateX(-50%);
     opacity: 0;
     display: none;
     transition: 0.2s;
     z-index: 1;
-
 }
 
 .menu li {
     padding: 11px 8px;
     margin: 5px 0;
-    /* border-radius: 8px; */
     cursor: pointer;
     border-top: 1px solid #fff;
 }

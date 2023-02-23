@@ -7,8 +7,22 @@ function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
 }
+
+const modal = document.querySelector("#contact_modal");
+// supprimer la modal 
+modal.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        modal.style.display = "none";
+    }
+})
 let btnSubmit = document.querySelector('#btn-submit');
 
+firstname.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        galleryOff.style.display = "none";
+    }
+})
+let galleryOff = document.querySelector('.div-gallery-active');
 
 let photographerForm = document.querySelector('#photographer-form');
 
@@ -37,7 +51,7 @@ photographerForm.addEventListener("submit", function (e) {
 
         else {
             messageFirstname.textContent = "";
-            console.log(firstname.value);
+
 
         }
 
@@ -52,7 +66,7 @@ photographerForm.addEventListener("submit", function (e) {
 
         else {
             messageLastname.textContent = "";
-            console.log(lastname.value);
+
         }
 
         // email 
@@ -63,7 +77,7 @@ photographerForm.addEventListener("submit", function (e) {
         }
         else {
             messageMail.textContent = "";
-            console.log(email.value);
+
         }
         // message 
 
@@ -74,10 +88,14 @@ photographerForm.addEventListener("submit", function (e) {
         }
         else {
             messageErrorTextArea.textContent = "";
-            console.log(message.value);
+
         }
 
 
+        console.log(firstname.value);
+        console.log(lastname.value);
+        console.log(email.value);
+        console.log(message.value);
 
         // Pour éviter que la page se recharge 
         e.preventDefault();

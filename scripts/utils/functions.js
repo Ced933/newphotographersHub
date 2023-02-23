@@ -22,7 +22,6 @@ close.addEventListener('click', () => {
 
 
 
-
 // SELECT 
 
 const dropdowns = document.querySelectorAll('.dropdown');
@@ -36,12 +35,23 @@ dropdowns.forEach(dropdown => {
     const options = dropdown.querySelectorAll('.menu li');
     const selected = dropdown.querySelector('.selected');
 
-    console.log(dropdown);
+
     // au clique sur le select tu m'ouvre le menu si je reclique dessus tu le ferme
+
     select.addEventListener('click', () => {
 
         caret.classList.toggle('caret-rotate');
         menu.classList.toggle('menu-open');
+
+    });
+
+    select.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+
+            caret.classList.toggle('caret-rotate');
+            menu.classList.toggle('menu-open');
+
+        }
 
     });
     // pour chaque option sur lequel tu vas cliquer tu me remplace par son nom dans le selected

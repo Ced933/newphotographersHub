@@ -27,25 +27,25 @@
       <form id="photographer-form">
         <div>
           <label>Prénom</label>
-          <input type="text" id="firstname" name="firstname" value="">
+          <input type="text" id="firstname" tabindex="1" name="firstname" value="">
           <div id="message-one" class="message-fn-wrong"></div>
         </div>
         <div>
           <label>Nom</label>
-          <input type="text" id="lastname" name="lastname">
+          <input type="text" tabindex="1" id="lastname" name="lastname">
           <div id="message-two" class="message-fn-wrong"></div>
         </div>
         <div>
           <label>Mail</label>
-          <input type="email" id="mail" name="mail">
+          <input type="email" tabindex="1" id="mail" name="mail">
           <div id="message-three" class="message-fn-wrong"></div>
         </div>
         <div>
           <label>Message</label>
-          <textarea name="message" id="message" cols="10" rows="5"></textarea>
+          <textarea name="message" tabindex="1" id="message" cols="10" rows="5"></textarea>
           <div id="message-four" class="message-fn-wrong"></div>
         </div>
-        <button type="submit" id="btn-submit" class="contact_button">Envoyer</button>
+        <button type="submit" tabindex="1" id="btn-submit" class="contact_button">Envoyer</button>
       </form>
     </div>
   </div>
@@ -94,14 +94,14 @@
       <div class="dropdown">
         <label id="dropdownlabel">Trier par</label>
         <div>
-          <div class="select">
+          <div tabindex="1" class="select">
             <span class="selected">Date</span>
             <div id="caret" class="caret"></div>
           </div>
           <ul class="menu">
-            <li id="date">Date</li>
-            <li id="likes">Populaire</li>
-            <li id="title">Titre</li>
+            <li tabindex="1" id="date">Date</li>
+            <li tabindex="1" id="likes">Populaire</li>
+            <li tabindex="1" id="title">Titre</li>
           </ul>
         </div>
       </div>

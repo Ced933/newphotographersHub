@@ -54,12 +54,12 @@ class PhotographersCard {
         // si dans dans la key tu as mediaItem et que la valeur fini par .jpg alors tu m'affiche l'image sinon la video 
         const cards = this._photographer.mediaItem.includes('.jpg') ? `
         
-        <img tabindex="1" src="assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.mediaItem}" alt="${this._photographer.title}" class="img-gallery">
+        <img tabindex="1" src="assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.mediaItem}" title="${this._photographer.title}" alt="${this._photographer.title}" class="img-gallery">
         
 
     ` : `
 
-    <video tabindex="1"         src="assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.mediaItem}" alt="${this._photographer.title}" class="img-gallery"></video>
+    <video tabindex="1"         src="assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.mediaItem}" title="${this._photographer.title}" class="img-gallery"></video>
  
 
 `

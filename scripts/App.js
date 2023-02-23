@@ -295,7 +295,11 @@ class AppTwo {
                 }
                 closeDropDown();
 
-            }
+            } containerGallery.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    bodyGallery.style.display = "none";
+                }
+            })
 
         });
         // lorsqu'on clique sur l'option populaire dans le select 
@@ -423,7 +427,11 @@ class AppTwo {
                     selected.innerText = "Populaire";
                 }
                 closeDropDown();
-            }
+            } containerGallery.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    bodyGallery.style.display = "none";
+                }
+            })
         });
 
 
@@ -563,16 +571,13 @@ class AppTwo {
                     selected.innerText = "Titre";
                 }
                 closeDropDown();
+                // la touche escape nous fait sortir de la gallery
+            } containerGallery.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
 
-            } else if (e.key === 'Escape') {
-                // if (bodyGallery.style.display === "none") {
-                //     bodyGallery.style.display = "block";
-                // }
-                // else {
-                //     bodyGallery.style.display = "none";
-                // }
-                console.log('ok');
-            }
+                    bodyGallery.style.display = "none";
+                }
+            })
         });
 
         function lightboxclicked() {

@@ -2,34 +2,23 @@
 class App {
     constructor() {
         this.PhotographersWrapper = document.querySelector('#photographer_section');
-        this.photographerApi = new PhotographersApi('data/photographers.json');
-
+        this.photographerApi = new Api('data/photographers.json');
     }
 
     async mainAllPhotographers() {
-
-        const photographersData = await this.photographerApi.getPhotographers();
-
-
+        const photographersData = await this.photographerApi.getFetch();
         photographersData.photographers.map(photographe => new Photographers(photographe))
             .forEach(photographe => {
-
                 const Template = new PhotographersCard(photographe);
-
                 this.PhotographersWrapper.appendChild(Template.createPhotographerCard());
-
             });
-
     }
-
 }
 
-
-// la page du photographe sur laquel on a cliqué 
+// la page du photographe sur laquelle on a cliqué 
 class AppTwo {
     constructor() {
-
-        this.photographerApi = new PhotographersApi('data/photographers.json');
+        this.photographerApi = new Api('data/photographers.json');
         this.sectionHeader = document.querySelector('#section-header');
         this.sectionCards = document.querySelector("#container-gallery");
         this.body = document.querySelector('#body');
@@ -37,7 +26,7 @@ class AppTwo {
 
     async personalPagePhotographer() {
         // les données json 
-        const photographerHeader = await this.photographerApi.getPhotographers();
+        const photographerHeader = await this.photographerApi.getFetch();
         // l'id du photographe
         const idPhotographer = window.location.search.slice(4);
 

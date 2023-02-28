@@ -10,7 +10,7 @@ close.addEventListener('click', () => {
     else {
         bodyGallery.style.display = "none";
     }
-})
+});
 
 // SELECT 
 

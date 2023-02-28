@@ -3,6 +3,10 @@ class App {
     constructor() {
         this.PhotographersWrapper = document.querySelector('#photographer_section');
         this.photographerApi = new Api('data/photographers.json');
+
+        this.sectionHeader = document.querySelector('#section-header');
+        this.sectionCards = document.querySelector("#container-gallery");
+        this.body = document.querySelector('#body');
     }
 
     async mainAllPhotographers() {
@@ -13,16 +17,9 @@ class App {
                 this.PhotographersWrapper.appendChild(Template.createPhotographerCard());
             });
     }
-}
 
-// la page du photographe sur laquelle on a cliqué 
-class AppTwo {
-    constructor() {
-        this.photographerApi = new Api('data/photographers.json');
-        this.sectionHeader = document.querySelector('#section-header');
-        this.sectionCards = document.querySelector("#container-gallery");
-        this.body = document.querySelector('#body');
-    }
+
+    // la page du photographe sur laquelle on a cliqué 
 
     async personalPagePhotographer() {
         // les données json 
@@ -678,17 +675,14 @@ class AppTwo {
 }
 
 const app = new App();
-const apptwo = new AppTwo();
+
 // si on ne fait pas ça, il va charger les deux méthodes en même temps sur la même page alors quelle agissent sur deux pages différentes 
 // et on aura une erreur dans chacune des pages 
 function activatePage() {
-
     if (document.URL.includes('index.html')) {
-
         app.mainAllPhotographers();
     } else if (document.URL.includes('photographer.html')) {
-
-        apptwo.personalPagePhotographer();
+        app.personalPagePhotographer();
     } else {
         console.log('error');
     }

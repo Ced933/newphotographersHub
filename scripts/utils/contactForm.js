@@ -9,8 +9,10 @@ function closeModal() {
 }
 
 const modal = document.querySelector("#contact_modal");
+const modalBox = document.querySelector(".modal");
 // supprimer la modal 
-modal.addEventListener('keydown', (e) => {
+document.addEventListener('keydown', (e) => {
+
     if (e.key === 'Escape') {
         modal.style.display = "none";
     }

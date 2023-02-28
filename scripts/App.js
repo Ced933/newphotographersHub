@@ -34,7 +34,7 @@ class AppTwo {
         photographerHeader.photographers.forEach(photographe => {
             if (idPhotographer == photographe.id) {
                 const Template = new PhotographersCard(photographe);
-                this.sectionHeader.appendChild(Template.createHeaderPhotgrapher());
+                this.sectionHeader.appendChild(Template.createHeaderPhotographer());
                 // sticky price 
                 this.body.appendChild(Template.stickyFunction());
             }
@@ -44,13 +44,13 @@ class AppTwo {
         let popular = document.querySelector("#likes");
         let title = document.querySelector("#title");
 
-
+        // Pour que date n'apparaisse pas deux fois 
         title.classList.add('d-block');
         popular.classList.add('d-block');
         date.classList.add('d-none');
 
-        // Pour afficher toutes les images de la gallery du photographe 
-        // filtre les 59images pour ne garder que les image avec le même id 
+        // Pour afficher toutes les images de la galerie du photographe 
+        // filtre les 59images pour ne garder que les images avec le même id 
         let ArrSameId = photographerHeader.media.filter(media => idPhotographer == media.photographerId);
 
         // boucle le tableau ArrSameId  
@@ -58,14 +58,12 @@ class AppTwo {
             // pour chaque carte 
             // donné json du photographe 
             let cardTemplate = new PhotographersCard(media);
-            // les link dans les quelles ils vont etre contenu 
+            // les link dans lesquelles ils vont être contenu 
             let figureCard = cardTemplate.allCardsOfPhotographers();
-
-
 
             // container gallery 
             this.sectionCards.appendChild(figureCard);
-            // je vais créer mon ficaption avec coeur, titre et nomre de like
+            // je vais créer mon ficaption avec coeur, titre et nombre de like
             let figcaption = document.createElement('figcaption');
 
             // ficaption je vais lui attribuer la class figcaption-describe
@@ -78,21 +76,19 @@ class AppTwo {
             let h4 = document.createElement('h4');
             h4.innerHTML += media.likes;
             h4.classList.add("singleLike");
-
-
             // coeur 
             let coeur = document.createElement('i');
             coeur.setAttribute("class", 'fa-solid fa-heart');
             coeur.setAttribute("aria-label", "likes");
 
-            // A chaque clique sur le coeur d'un carte j'augmente son nombre de like de +1 
+            // A chaque clique sur le coeur j'augmente son nombre de like de +1 
             // ainsi que son nombre total de like toutes cartes confondu de +1
             coeur.onclick = function () {
                 h4.innerHTML = ++media.likes;
                 displayLikes(++totalLike);
             };
-            // avant cette fonction createDivHeart tout ce que j'ai creé etait abstrait 
-            // Maintenant je cree la div ou apparraitra tout les enlement que j'ai créer a part l'image que j'ai créer via une méthode
+
+            // Maintenant je crée la div ou apparaîtra tous les éléments que j'ai créés à part l'image que j'ai créée via une méthode
             function createDivHeart() {
                 figureCard.appendChild(figcaption);
                 figcaption.appendChild(h3);
@@ -105,10 +101,8 @@ class AppTwo {
             createDivHeart();
         });
 
-
-
-        // mettre le totalLike en dehors de la fonction pour qui soit accessible à tous 
-        var totalLike = 0;
+        // Mettre totalLike en dehors de la fonction pour qu'il soit accessible à tous 
+        let totalLike = 0;
 
         function displayLikes() {
             // on prend tous les likes du dom 
@@ -116,26 +110,27 @@ class AppTwo {
             // la balise ou s'affichera le nombre total de likes 
             const displayLikeCounter = document.querySelector("#total-likes");
 
-            //    Chaque like dans le dom en string  
+            // Chaque like dans le dom en string  
             let likesText = 0;
             // le tableau dans le quelle on va mettre chaque like 
             let arrayLikes = [];
             nbrLikes.forEach((like) => {
-                // pour chaque like prit on va le transformer en number 
+
                 likesText = parseInt(
-                    // l'interieur d'un like 
+                    // l'interieur du h4 
                     like.textContent
-                ); // Transforme en nombre le texte à côté de l'input (label = nombre de like) 
+                ); // Le h4 qui etait un string se transform en number
                 arrayLikes.push(
                     likesText
                 );
-                /** Alimente le tableau "arrayLikes" du nombre de like de chaque média du photographe */
+                // Alimente le tableau "arrayLikes" du nombre de like de chaque média du photographe 
                 totalLike = arrayLikes.reduce((accumulator, currentValue) => {
+                    // Calcule la somme du tableau 
                     return accumulator + currentValue;
-                }, 0); /** Calcule la somme du tableau */
+                }, 0);
 
                 return (displayLikeCounter.innerHTML =
-                    totalLike); /** Met à jour le total des likes du photographe */
+                    totalLike); // Met à jour le total des likes du photographe 
             });
 
         }
@@ -143,11 +138,8 @@ class AppTwo {
 
         let containerGallery = document.querySelector("#container-gallery");
 
-
         // lorsqu'on clique sur l'option date dans le select 
         date.addEventListener('click', () => {
-
-
             title.classList.add('d-block');
             popular.classList.add('d-block');
             date.classList.remove('d-block');
@@ -165,9 +157,6 @@ class AppTwo {
                 let cardTemplate = new PhotographersCard(media);
                 let figureCard = cardTemplate.allCardsOfPhotographers();
 
-
-
-                // mettre tt ca dans une fonction 
                 this.sectionCards.appendChild(figureCard);
 
                 let coeur = document.createElement('i');
@@ -180,11 +169,8 @@ class AppTwo {
 
                 h3.classList.add("h3-figcaption");
 
-                // rajoutez les coeurs 
                 h4.innerHTML += media.likes;
                 h4.classList.add("singleLike");
-
-
 
                 coeur.setAttribute("class", 'fa-solid fa-heart');
                 coeur.setAttribute("aria-label", "likes");
@@ -194,8 +180,6 @@ class AppTwo {
                 };
 
                 const divHeart = document.createElement('div');
-                // const Figurecaption = document.querySelector('.figcaption-describe');
-
 
                 figureCard.appendChild(figcaption);
                 figcaption.appendChild(h3);
@@ -221,7 +205,6 @@ class AppTwo {
                 containerGallery.innerHTML = "";
 
                 ArrSameId.sort((a, b) => {
-                    // par ordre alphabétique pour les chaine de caractère
                     if (a.date < b.date) {
                         return -1;
                     }
@@ -230,9 +213,6 @@ class AppTwo {
                     let cardTemplate = new PhotographersCard(media);
                     let figureCard = cardTemplate.allCardsOfPhotographers();
 
-
-
-                    // mettre tt ca dans une fonction 
                     this.sectionCards.appendChild(figureCard);
 
                     let coeur = document.createElement('i');
@@ -245,11 +225,8 @@ class AppTwo {
 
                     h3.classList.add("h3-figcaption");
 
-                    // rajoutez les coeurs 
                     h4.innerHTML += media.likes;
                     h4.classList.add("singleLike");
-
-
 
                     coeur.setAttribute("class", 'fa-solid fa-heart');
                     coeur.setAttribute("aria-label", "likes");
@@ -259,7 +236,6 @@ class AppTwo {
                     };
 
                     const divHeart = document.createElement('div');
-
 
                     figureCard.appendChild(figcaption);
                     figcaption.appendChild(h3);
@@ -272,7 +248,7 @@ class AppTwo {
                 displayLikes();
                 lightboxclicked();
                 function closeDropDown() {
-
+                    // fermer la pop up lorqu'on a appuyé sur entrer sur une option
                     const selected = document.querySelector('.selected');
 
                     const caret = document.querySelector('#caret');
@@ -283,7 +259,7 @@ class AppTwo {
                     selected.innerText = "Date";
                 }
                 closeDropDown();
-
+                //Accessibilité. Quitter la galerie avec échape 
             } containerGallery.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                     bodyGallery.style.display = "none";
@@ -291,6 +267,7 @@ class AppTwo {
             })
 
         });
+
         // lorsqu'on clique sur l'option populaire dans le select 
         popular.addEventListener('click', () => {
             title.classList.add('d-block');
@@ -307,7 +284,6 @@ class AppTwo {
                 let cardTemplate = new PhotographersCard(media);
                 let figureCard = cardTemplate.allCardsOfPhotographers();
 
-
                 this.sectionCards.appendChild(figureCard);
                 let coeur = document.createElement('i');
                 let h4 = document.createElement('h4');
@@ -319,11 +295,8 @@ class AppTwo {
 
                 h3.classList.add("h3-figcaption");
 
-                // rajoutez les coeurs 
                 h4.innerHTML += media.likes;
                 h4.classList.add("singleLike");
-
-
 
                 coeur.setAttribute("class", 'fa-solid fa-heart');
                 coeur.setAttribute("aria-label", "likes");
@@ -333,7 +306,6 @@ class AppTwo {
                 };
 
                 const divHeart = document.createElement('div');
-
 
                 figureCard.appendChild(figcaption);
                 figcaption.appendChild(h3);
@@ -346,8 +318,6 @@ class AppTwo {
             displayLikes();
             lightboxclicked();
         });
-
-
 
         popular.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
@@ -365,7 +335,6 @@ class AppTwo {
                     let cardTemplate = new PhotographersCard(media);
                     let figureCard = cardTemplate.allCardsOfPhotographers();
 
-
                     this.sectionCards.appendChild(figureCard);
                     let coeur = document.createElement('i');
                     let h4 = document.createElement('h4');
@@ -380,8 +349,6 @@ class AppTwo {
                     // rajoutez les coeurs 
                     h4.innerHTML += media.likes;
                     h4.classList.add("singleLike");
-
-
 
                     coeur.setAttribute("class", 'fa-solid fa-heart');
                     coeur.setAttribute("aria-label", "likes");
@@ -403,7 +370,7 @@ class AppTwo {
                 });
                 displayLikes();
                 lightboxclicked();
-                // fermer la pop up lorqu'on a appuyé sur entrer sur une option
+
                 function closeDropDown() {
 
                     const selected = document.querySelector('.selected');
@@ -422,13 +389,6 @@ class AppTwo {
                 }
             })
         });
-
-
-
-
-
-
-
 
         // lorsqu'on clique sur l'option titre dans le select 
         title.addEventListener('click', () => {
@@ -449,7 +409,6 @@ class AppTwo {
                 let cardTemplate = new PhotographersCard(media);
                 let figureCard = cardTemplate.allCardsOfPhotographers();
 
-
                 this.sectionCards.appendChild(figureCard);
                 let coeur = document.createElement('i');
                 let h4 = document.createElement('h4');
@@ -465,8 +424,6 @@ class AppTwo {
                 h4.innerHTML += media.likes;
                 h4.classList.add("singleLike");
 
-
-
                 coeur.setAttribute("class", 'fa-solid fa-heart');
                 coeur.setAttribute("aria-label", "likes");
                 coeur.onclick = function () {
@@ -475,7 +432,6 @@ class AppTwo {
                 };
 
                 const divHeart = document.createElement('div');
-
 
                 figureCard.appendChild(figcaption);
                 figcaption.appendChild(h3);
@@ -508,7 +464,6 @@ class AppTwo {
                     let cardTemplate = new PhotographersCard(media);
                     let figureCard = cardTemplate.allCardsOfPhotographers();
 
-
                     this.sectionCards.appendChild(figureCard);
                     let coeur = document.createElement('i');
                     let h4 = document.createElement('h4');
@@ -524,8 +479,6 @@ class AppTwo {
                     h4.innerHTML += media.likes;
                     h4.classList.add("singleLike");
 
-
-
                     coeur.setAttribute("class", 'fa-solid fa-heart');
                     coeur.setAttribute("aria-label", "likes");
                     coeur.onclick = function () {
@@ -534,7 +487,6 @@ class AppTwo {
                     };
 
                     const divHeart = document.createElement('div');
-
 
                     figureCard.appendChild(figcaption);
                     figcaption.appendChild(h3);
@@ -547,11 +499,9 @@ class AppTwo {
                 displayLikes();
                 lightboxclicked();
 
-
                 function closeDropDown() {
 
                     const selected = document.querySelector('.selected');
-
                     const caret = document.querySelector('#caret');
                     const menu = document.querySelector('.menu');
 
@@ -570,6 +520,7 @@ class AppTwo {
         });
 
         function lightboxclicked() {
+            // lorqu'on clique sur une image de la galerie 
             let imageAlone = document.querySelector(".gallery-active");
             let videoAlone = document.querySelector("#video-alone");
             let title = document.querySelector('#h5gallery');
@@ -578,20 +529,21 @@ class AppTwo {
             let leftArrow = document.querySelector('.left-arrow');
             let rightArrow = document.querySelector('.right-arrow');
 
-
             let imgIndex = 0;
             const images = document.querySelectorAll('.img-gallery');
 
+            // on récupère le ArrSameId on fait une boucle pour avoir tous les éléments
 
+            let arrayArrow = ArrSameId.map(list => list.mediaItem);
+            let arrayArrowTitle = ArrSameId.map(list => list.title);
 
             images.forEach(img => {
                 img.addEventListener('click', e => {
 
-
                     videoAlone.style.display = 'none';
                     imageAlone.style.display = 'none';
                     let path = e.target.src;
-
+                    // en fonction de l'extension une image ou video s'affiche 
                     if (path.includes(".mp4")) {
                         videoAlone.style.display = "block";
 
@@ -607,9 +559,10 @@ class AppTwo {
                     } else {
                         console.log('error');
                     }
-
+                    // sur tous les index des l'image tu me séléctionne que l'index de l'image sur laquelle j'ai cliqué
                     imgIndex = [...images].indexOf(img);
 
+                    // le titre qui equivaut à l'index 
                     const currentphoto = arrayArrowTitle[imgIndex];
 
                     title.innerHTML = currentphoto;
@@ -617,11 +570,6 @@ class AppTwo {
                     lightbox.style.display = 'block';
                 });
             });
-
-            // on récupère le ArrSameId on fait une boucle pour avoir tous les éléments
-
-            let arrayArrow = ArrSameId.map(list => list.mediaItem);
-            let arrayArrowTitle = ArrSameId.map(list => list.title);
 
             leftArrow.addEventListener('click', () => {
                 imgIndex--;
@@ -671,31 +619,20 @@ class AppTwo {
                     }
                 }
                 else if (e.key === 'Enter') {
-                    // const splitPath = e.target.currentSrc.split("/");
-                    // const imgFocus = splitPath[splitPath.length - 1];
-
-
                     videoAlone.style.display = 'none';
                     imageAlone.style.display = 'none';
                     let path = e.target.src;
 
                     if (path.includes(".mp4")) {
                         videoAlone.style.display = "block";
-
                         videoAlone.src = e.target.src;
 
                     } else if (path.includes(".jpg")) {
-
                         imageAlone.style.display = "block";
-
                         imageAlone.src = e.target.src;
-
                     } else {
                         console.log('error');
                     }
-
-
-
 
                     images.forEach(image => {
                         if (image.src === e.target.currentSrc) {
@@ -703,35 +640,26 @@ class AppTwo {
                             title.innerHTML = image.title;
                         }
                     });
-                    // title.innerHTML = images.find(image => image.src === e.target.currentSrc).alt;
 
                     lightbox.style.display = 'block';
-
-
                 }
             });
-
-
 
             rightArrow.addEventListener('click', () => {
                 imgIndex++;
                 if (imgIndex > images.length - 1) {
-                    // mettre a la 1er image 
+                    // mettre à la 1er image 
                     imgIndex = 0;
-
                 }
                 const currentphoto = arrayArrowTitle[imgIndex];
                 title.innerHTML = currentphoto;
                 return setMedia();
             });
 
-
             function setMedia() {
                 let i = imgIndex;
                 let image = document.querySelector('#img-alone');
                 let video = document.querySelector('#video-alone');
-
-
 
                 if (arrayArrow[i].includes(".jpg")) {
                     image.style.display = 'block';
@@ -743,7 +671,6 @@ class AppTwo {
                     video.style.display = 'block';
                     video.setAttribute('src', `assets/SamplePhotos/${idPhotographer}/${arrayArrow[i]}`);
                 }
-
             }
         }
         lightboxclicked();
@@ -752,7 +679,7 @@ class AppTwo {
 
 const app = new App();
 const apptwo = new AppTwo();
-// si on ne fait pas ca il va charger les deux methodes en meme temps sur la meme page alors quelle agissent sur deu page différement 
+// si on ne fait pas ça, il va charger les deux méthodes en même temps sur la même page alors quelle agissent sur deux pages différentes 
 // et on aura une erreur dans chacune des pages 
 function activatePage() {
 

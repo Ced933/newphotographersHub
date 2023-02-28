@@ -2,8 +2,9 @@ class PhotographersCard {
     constructor(photographer) {
         this._photographer = photographer
     }
-    // ici on recupère donc le construtor this._photographer qu'on associera en fonction de la propriété de notre tableau 
-    //  si on veut afficher le name de l'objet photographers dans notre fichier json on fera  this._photographer.name
+    // ici on récupère donc le construtor this._photographer qu'on associera en fonction de la propriété de notre tableau 
+    //  si on veut afficher le name de l'objet photographers de notre fichier json on fera this._photographer.name
+    //    creation des photographers dans la page d'accueil 
     createPhotographerCard() {
         const photographerSection = document.createElement('div');
         photographerSection.classList.add('.photographer_section_article');
@@ -22,7 +23,8 @@ class PhotographersCard {
         return photographerSection;
     }
 
-    createHeaderPhotgrapher() {
+    // création de l'encadré lorsqu'on est sur la page du photographer
+    createHeaderPhotographer() {
         const photographerHeader = document.createElement('div');
         photographerHeader.classList.add('.photograph-header');
         const headerPhotographer = `
@@ -46,12 +48,13 @@ class PhotographersCard {
         return photographerHeader
     }
 
+    // création de la galerie photo
     allCardsOfPhotographers() {
         const sectionCards = document.createElement('a');
 
 
         // condition ternaire  pour faire apparaitre soit l'image soit la vidéo
-        // si dans dans la key tu as mediaItem et que la valeur fini par .jpg alors tu m'affiche l'image sinon la video 
+        // si dans la key tu as mediaItem et que la valeur finie par .jpg alors tu m'affiches l'image sinon la vidéo 
         const cards = this._photographer.mediaItem.includes('.jpg') ? `
         
         <img tabindex="1" src="assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.mediaItem}" title="${this._photographer.title}" alt="${this._photographer.title}" class="img-gallery">
@@ -59,7 +62,7 @@ class PhotographersCard {
 
     ` : `
 
-    <video tabindex="1"         src="assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.mediaItem}" title="${this._photographer.title}" class="img-gallery"></video>
+    <video tabindex="1" src="assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.mediaItem}" title="${this._photographer.title}" class="img-gallery"></video>
  
 
 `
@@ -68,6 +71,7 @@ class PhotographersCard {
         return sectionCards;
     }
 
+    // création de la sticky barre 
     stickyFunction() {
 
         const containerStick = document.createElement('div');

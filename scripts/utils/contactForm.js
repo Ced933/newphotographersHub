@@ -15,14 +15,8 @@ modal.addEventListener('keydown', (e) => {
         modal.style.display = "none";
     }
 })
-let btnSubmit = document.querySelector('#btn-submit');
 
-firstname.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-        galleryOff.style.display = "none";
-    }
-})
-let galleryOff = document.querySelector('.div-gallery-active');
+
 
 let photographerForm = document.querySelector('#photographer-form');
 
@@ -41,6 +35,7 @@ photographerForm.addEventListener("submit", function (e) {
 
 
     function verifyForm() {
+        // si les cases ne sont pas remplis correctement le bouton envoyer sera bloqué
         // firstname 
 
         if (regex.test(firstname.value) == false || firstname.value.trim() === "" || firstname.value.length <= 2) {
@@ -51,10 +46,7 @@ photographerForm.addEventListener("submit", function (e) {
 
         else {
             messageFirstname.textContent = "";
-
-
         }
-
 
 
         // lastname 
@@ -90,8 +82,6 @@ photographerForm.addEventListener("submit", function (e) {
             messageErrorTextArea.textContent = "";
 
         }
-
-
         console.log(firstname.value);
         console.log(lastname.value);
         console.log(email.value);
@@ -115,4 +105,4 @@ photographerForm.addEventListener("submit", function (e) {
 });
 
 
-// si tu me remplis pas les cases correctement tu me bloques le bouton envoyer 
+

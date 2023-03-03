@@ -50,9 +50,9 @@ class PhotographersCard {
         // condition ternaire  pour faire apparaitre soit l'image soit la vidéo
         // si dans la key tu as mediaItem et que la valeur finie par .jpg alors tu m'affiches l'image sinon la vidéo 
         const cards = this._photographer.mediaItem.includes('.jpg') ? `
-        <img tabindex="1" src="assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.mediaItem}" title="${this._photographer.title}" alt="${this._photographer.title}" class="img-gallery">
+        <img tabindex="1" src="assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.mediaItem}" title="${this._photographer.title}" aria-label="image " alt="${this._photographer.title}" class="img-gallery">
     ` : `
-    <video tabindex="1" src="assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.mediaItem}" title="${this._photographer.title}" class="img-gallery"></video>
+    <video tabindex="1" src="assets/SamplePhotos/${this._photographer.photographerId}/${this._photographer.mediaItem}" title="${this._photographer.title}" aria-label="vidéo" class="img-gallery"></video>
 `;
         sectionCards.classList.add('a-body-link');
         sectionCards.innerHTML = cards;
@@ -67,7 +67,7 @@ class PhotographersCard {
             <div id="sticky-price" class="sticky-price">
                 <div class="div-heart-total">
                     <!-- où va être affiché le total de like   -->
-                    <h4 id="total-likes"></h4> <i aria-label="likes" class="fa-solid fa-heart"></i>
+                    <h4 id="total-likes"></h4> <i class="fa-solid fa-heart"></i>
                 </div>
                 <p id="price-by-day">${this._photographer.price}€/jour</p> 
                 <div id="price">

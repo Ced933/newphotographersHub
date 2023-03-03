@@ -18,8 +18,6 @@ document.addEventListener('keydown', (e) => {
     }
 })
 
-
-
 let photographerForm = document.querySelector('#photographer-form');
 
 photographerForm.addEventListener("submit", function (e) {
@@ -34,8 +32,6 @@ photographerForm.addEventListener("submit", function (e) {
     let regex = /^[a-zA-Z-\s]+$/;
     let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-
-
     function verifyForm() {
         // si les cases ne sont pas remplis correctement le bouton envoyer sera bloqué
         // firstname 
@@ -44,23 +40,17 @@ photographerForm.addEventListener("submit", function (e) {
             e.preventDefault();
             messageFirstname.textContent = "Le champ est vide ou inférieur à deux caractère, chiffres et les caractères spéciaux interdits";
             return
-        }
-
-        else {
+        } else {
             messageFirstname.textContent = "";
         }
-
 
         // lastname 
         if (regex.test(lastname.value) == false || lastname.value.trim() === "" || lastname.value.length <= 2) {
             e.preventDefault();
             messageLastname.textContent = "Le champ est vide ou inférieur à deux caractère, chiffres et les caractères spéciaux interdits";
             return
-        }
-
-        else {
+        } else {
             messageLastname.textContent = "";
-
         }
 
         // email 
@@ -68,21 +58,17 @@ photographerForm.addEventListener("submit", function (e) {
             e.preventDefault();
             messageMail.textContent = "Ceci n'est pas une adresse email";
             return
-        }
-        else {
+        } else {
             messageMail.textContent = "";
-
         }
-        // message 
 
+        // message 
         if (message.value.trim() === "" || message.value.length <= 20) {
             e.preventDefault();
             messageErrorTextArea.textContent = "Minimum 20 caractères";
             return
-        }
-        else {
+        } else {
             messageErrorTextArea.textContent = "";
-
         }
         console.log(firstname.value);
         console.log(lastname.value);
@@ -96,15 +82,6 @@ photographerForm.addEventListener("submit", function (e) {
         lastname.value = "";
         email.value = "";
         message.value = "";
-
     }
     verifyForm();
-
-
-
-
-
 });
-
-
-

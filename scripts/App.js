@@ -1,14 +1,13 @@
-// la page d'accueil 
 class App {
     constructor() {
         this.PhotographersWrapper = document.querySelector('#photographer_section');
         this.photographerApi = new Api('data/photographers.json');
-
         this.sectionHeader = document.querySelector('#section-header');
         this.sectionCards = document.querySelector("#container-gallery");
         this.body = document.querySelector('#body');
     }
 
+    // la page d'accueil 
     async mainAllPhotographers() {
         const photographersData = await this.photographerApi.getFetch();
         photographersData.photographers.map(photographe => new Photographers(photographe))
@@ -18,9 +17,7 @@ class App {
             });
     }
 
-
-    // la page du photographe sur laquelle on a cliqué 
-
+    // la page du photographe sur laquelle on a cliqué
     async personalPagePhotographer() {
         // les données json 
         const photographerHeader = await this.photographerApi.getFetch();
@@ -76,7 +73,7 @@ class App {
             // coeur 
             let coeur = document.createElement('i');
             coeur.setAttribute("class", 'fa-solid fa-heart');
-            coeur.setAttribute("aria-label", "likes");
+
 
             // A chaque clique sur le coeur j'augmente son nombre de like de +1 
             // ainsi que son nombre total de like toutes cartes confondu de +1
@@ -89,7 +86,6 @@ class App {
             function createDivHeart() {
                 figureCard.appendChild(figcaption);
                 figcaption.appendChild(h3);
-
                 const divHeart = document.createElement('div');
                 figcaption.appendChild(divHeart);
                 divHeart.appendChild(h4);
@@ -129,7 +125,6 @@ class App {
                 return (displayLikeCounter.innerHTML =
                     totalLike); // Met à jour le total des likes du photographe 
             });
-
         }
         displayLikes();
 
@@ -141,7 +136,6 @@ class App {
             popular.classList.add('d-block');
             date.classList.remove('d-block');
             date.classList.add('d-none');
-
             containerGallery.innerHTML = "";
 
             ArrSameId.sort((a, b) => {
@@ -153,9 +147,7 @@ class App {
 
                 let cardTemplate = new PhotographersCard(media);
                 let figureCard = cardTemplate.allCardsOfPhotographers();
-
                 this.sectionCards.appendChild(figureCard);
-
                 let coeur = document.createElement('i');
                 let h4 = document.createElement('h4');
                 let h3 = document.createElement('h3');
@@ -163,25 +155,21 @@ class App {
 
                 figcaption.classList.add('figcaption-describe');
                 h3.innerHTML += media.title;
-
                 h3.classList.add("h3-figcaption");
-
                 h4.innerHTML += media.likes;
                 h4.classList.add("singleLike");
 
                 coeur.setAttribute("class", 'fa-solid fa-heart');
-                coeur.setAttribute("aria-label", "likes");
+
                 coeur.onclick = function () {
                     h4.innerHTML = ++media.likes;
                     displayLikes(++totalLike);
                 };
 
                 const divHeart = document.createElement('div');
-
                 figureCard.appendChild(figcaption);
                 figcaption.appendChild(h3);
                 figcaption.appendChild(divHeart);
-
                 divHeart.appendChild(h4);
                 divHeart.appendChild(coeur);
             });
@@ -198,7 +186,6 @@ class App {
                 popular.classList.add('d-block');
                 date.classList.remove('d-block');
                 date.classList.add('d-none');
-
                 containerGallery.innerHTML = "";
 
                 ArrSameId.sort((a, b) => {
@@ -209,9 +196,7 @@ class App {
 
                     let cardTemplate = new PhotographersCard(media);
                     let figureCard = cardTemplate.allCardsOfPhotographers();
-
                     this.sectionCards.appendChild(figureCard);
-
                     let coeur = document.createElement('i');
                     let h4 = document.createElement('h4');
                     let h3 = document.createElement('h3');
@@ -219,50 +204,46 @@ class App {
 
                     figcaption.classList.add('figcaption-describe');
                     h3.innerHTML += media.title;
-
                     h3.classList.add("h3-figcaption");
-
                     h4.innerHTML += media.likes;
                     h4.classList.add("singleLike");
 
                     coeur.setAttribute("class", 'fa-solid fa-heart');
-                    coeur.setAttribute("aria-label", "likes");
+
                     coeur.onclick = function () {
                         h4.innerHTML = ++media.likes;
                         displayLikes(++totalLike);
                     };
 
                     const divHeart = document.createElement('div');
-
                     figureCard.appendChild(figcaption);
                     figcaption.appendChild(h3);
                     figcaption.appendChild(divHeart);
-
                     divHeart.appendChild(h4);
                     divHeart.appendChild(coeur);
                 });
 
                 displayLikes();
                 lightboxclicked();
+
                 function closeDropDown() {
                     // fermer la pop up lorqu'on a appuyé sur entrer sur une option
                     const selected = document.querySelector('.selected');
-
                     const caret = document.querySelector('#caret');
                     const menu = document.querySelector('.menu');
-
                     caret.classList.remove('caret-rotate');
                     menu.classList.remove('menu-open');
                     selected.innerText = "Date";
                 }
                 closeDropDown();
                 //Accessibilité. Quitter la galerie avec échape 
-            } containerGallery.addEventListener('keydown', (e) => {
+            }
+
+            containerGallery.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                     bodyGallery.style.display = "none";
                 }
             })
-
         });
 
         // lorsqu'on clique sur l'option populaire dans le select 
@@ -280,7 +261,6 @@ class App {
 
                 let cardTemplate = new PhotographersCard(media);
                 let figureCard = cardTemplate.allCardsOfPhotographers();
-
                 this.sectionCards.appendChild(figureCard);
                 let coeur = document.createElement('i');
                 let h4 = document.createElement('h4');
@@ -289,28 +269,22 @@ class App {
 
                 figcaption.classList.add('figcaption-describe');
                 h3.innerHTML += media.title;
-
                 h3.classList.add("h3-figcaption");
-
                 h4.innerHTML += media.likes;
                 h4.classList.add("singleLike");
-
                 coeur.setAttribute("class", 'fa-solid fa-heart');
-                coeur.setAttribute("aria-label", "likes");
+
                 coeur.onclick = function () {
                     h4.innerHTML = ++media.likes;
                     displayLikes(++totalLike);
                 };
 
                 const divHeart = document.createElement('div');
-
                 figureCard.appendChild(figcaption);
                 figcaption.appendChild(h3);
                 figcaption.appendChild(divHeart);
-
                 divHeart.appendChild(h4);
                 divHeart.appendChild(coeur);
-
             });
             displayLikes();
             lightboxclicked();
@@ -331,7 +305,6 @@ class App {
 
                     let cardTemplate = new PhotographersCard(media);
                     let figureCard = cardTemplate.allCardsOfPhotographers();
-
                     this.sectionCards.appendChild(figureCard);
                     let coeur = document.createElement('i');
                     let h4 = document.createElement('h4');
@@ -340,27 +313,22 @@ class App {
 
                     figcaption.classList.add('figcaption-describe');
                     h3.innerHTML += media.title;
-
                     h3.classList.add("h3-figcaption");
-
                     // rajoutez les coeurs 
                     h4.innerHTML += media.likes;
                     h4.classList.add("singleLike");
 
                     coeur.setAttribute("class", 'fa-solid fa-heart');
-                    coeur.setAttribute("aria-label", "likes");
+
                     coeur.onclick = function () {
                         h4.innerHTML = ++media.likes;
                         displayLikes(++totalLike);
                     };
 
                     const divHeart = document.createElement('div');
-
-
                     figureCard.appendChild(figcaption);
                     figcaption.appendChild(h3);
                     figcaption.appendChild(divHeart);
-
                     divHeart.appendChild(h4);
                     divHeart.appendChild(coeur);
 
@@ -371,16 +339,16 @@ class App {
                 function closeDropDown() {
 
                     const selected = document.querySelector('.selected');
-
                     const caret = document.querySelector('#caret');
                     const menu = document.querySelector('.menu');
-
                     caret.classList.remove('caret-rotate');
                     menu.classList.remove('menu-open');
                     selected.innerText = "Populaire";
                 }
                 closeDropDown();
-            } containerGallery.addEventListener('keydown', (e) => {
+            }
+
+            containerGallery.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                     bodyGallery.style.display = "none";
                 }
@@ -414,26 +382,22 @@ class App {
 
                 figcaption.classList.add('figcaption-describe');
                 h3.innerHTML += media.title;
-
                 h3.classList.add("h3-figcaption");
-
                 // rajoutez les coeurs 
                 h4.innerHTML += media.likes;
                 h4.classList.add("singleLike");
 
                 coeur.setAttribute("class", 'fa-solid fa-heart');
-                coeur.setAttribute("aria-label", "likes");
+
                 coeur.onclick = function () {
                     h4.innerHTML = ++media.likes;
                     displayLikes(++totalLike);
                 };
 
                 const divHeart = document.createElement('div');
-
                 figureCard.appendChild(figcaption);
                 figcaption.appendChild(h3);
                 figcaption.appendChild(divHeart);
-
                 divHeart.appendChild(h4);
                 divHeart.appendChild(coeur);
 
@@ -460,7 +424,6 @@ class App {
 
                     let cardTemplate = new PhotographersCard(media);
                     let figureCard = cardTemplate.allCardsOfPhotographers();
-
                     this.sectionCards.appendChild(figureCard);
                     let coeur = document.createElement('i');
                     let h4 = document.createElement('h4');
@@ -469,46 +432,41 @@ class App {
 
                     figcaption.classList.add('figcaption-describe');
                     h3.innerHTML += media.title;
-
                     h3.classList.add("h3-figcaption");
-
                     // rajoutez les coeurs 
                     h4.innerHTML += media.likes;
                     h4.classList.add("singleLike");
 
                     coeur.setAttribute("class", 'fa-solid fa-heart');
-                    coeur.setAttribute("aria-label", "likes");
+
                     coeur.onclick = function () {
                         h4.innerHTML = ++media.likes;
                         displayLikes(++totalLike);
                     };
 
                     const divHeart = document.createElement('div');
-
                     figureCard.appendChild(figcaption);
                     figcaption.appendChild(h3);
                     figcaption.appendChild(divHeart);
-
                     divHeart.appendChild(h4);
                     divHeart.appendChild(coeur);
-
                 });
                 displayLikes();
                 lightboxclicked();
 
                 function closeDropDown() {
-
                     const selected = document.querySelector('.selected');
                     const caret = document.querySelector('#caret');
                     const menu = document.querySelector('.menu');
-
                     caret.classList.remove('caret-rotate');
                     menu.classList.remove('menu-open');
                     selected.innerText = "Titre";
                 }
                 closeDropDown();
                 // la touche escape nous fait sortir de la gallery
-            } containerGallery.addEventListener('keydown', (e) => {
+            }
+
+            containerGallery.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
 
                     bodyGallery.style.display = "none";
@@ -521,49 +479,35 @@ class App {
             let imageAlone = document.querySelector(".gallery-active");
             let videoAlone = document.querySelector("#video-alone");
             let title = document.querySelector('#h5gallery');
-
             const lightbox = document.querySelector('.body-gallery');
             let leftArrow = document.querySelector('.left-arrow');
             let rightArrow = document.querySelector('.right-arrow');
-
             let imgIndex = 0;
             const images = document.querySelectorAll('.img-gallery');
-
             // on récupère le ArrSameId on fait une boucle pour avoir tous les éléments
-
             let arrayArrow = ArrSameId.map(list => list.mediaItem);
             let arrayArrowTitle = ArrSameId.map(list => list.title);
 
             images.forEach(img => {
                 img.addEventListener('click', e => {
-
                     videoAlone.style.display = 'none';
                     imageAlone.style.display = 'none';
                     let path = e.target.src;
                     // en fonction de l'extension une image ou video s'affiche 
                     if (path.includes(".mp4")) {
                         videoAlone.style.display = "block";
-
                         videoAlone.src = e.target.src;
-
                     } else if (path.includes(".jpg")) {
-
-
                         imageAlone.style.display = "block";
-
                         imageAlone.src = e.target.src;
-
                     } else {
                         console.log('error');
                     }
                     // sur tous les index des l'image tu me séléctionne que l'index de l'image sur laquelle j'ai cliqué
                     imgIndex = [...images].indexOf(img);
-
                     // le titre qui equivaut à l'index 
                     const currentphoto = arrayArrowTitle[imgIndex];
-
                     title.innerHTML = currentphoto;
-
                     lightbox.style.display = 'block';
                 });
             });
@@ -572,11 +516,10 @@ class App {
                 imgIndex--;
                 if (imgIndex < 0) {
                     imgIndex = images.length - 1;
-
                 }
+
                 const currentphoto = arrayArrowTitle[imgIndex];
                 title.innerHTML = currentphoto;
-
                 return setMedia();
             });
 
@@ -589,33 +532,26 @@ class App {
                     imgIndex--;
                     if (imgIndex < 0) {
                         imgIndex = images.length - 1;
-
                     }
                     const currentphoto = arrayArrowTitle[imgIndex];
-                    title.innerHTML = currentphoto;
-
+                    title.innerHTML = currentphoto
                     return setMedia();
-                }
-                else if (e.key === 'ArrowRight') {
+                } else if (e.key === 'ArrowRight') {
                     imgIndex++;
                     if (imgIndex > images.length - 1) {
                         // mettre a la 1er image 
                         imgIndex = 0;
-
                     }
                     const currentphoto = arrayArrowTitle[imgIndex];
                     title.innerHTML = currentphoto;
                     return setMedia();
-                }
-                else if (e.key === 'Escape') {
+                } else if (e.key === 'Escape') {
                     if (bodyGallery.style.display === "none") {
                         bodyGallery.style.display = "block";
-                    }
-                    else {
+                    } else {
                         bodyGallery.style.display = "none";
                     }
-                }
-                else if (e.key === 'Enter') {
+                } else if (e.key === 'Enter') {
                     videoAlone.style.display = 'none';
                     imageAlone.style.display = 'none';
                     let path = e.target.src;
@@ -637,7 +573,6 @@ class App {
                             title.innerHTML = image.title;
                         }
                     });
-
                     lightbox.style.display = 'block';
                 }
             });
@@ -648,6 +583,7 @@ class App {
                     // mettre à la 1er image 
                     imgIndex = 0;
                 }
+
                 const currentphoto = arrayArrowTitle[imgIndex];
                 title.innerHTML = currentphoto;
                 return setMedia();
@@ -675,7 +611,6 @@ class App {
 }
 
 const app = new App();
-
 // si on ne fait pas ça, il va charger les deux méthodes en même temps sur la même page alors quelle agissent sur deux pages différentes 
 // et on aura une erreur dans chacune des pages 
 function activatePage() {

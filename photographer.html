@@ -32,22 +32,22 @@
       <form id="photographer-form">
         <div>
           <label>Prénom</label>
-          <input type="text" id="firstname" tabindex="1" name="firstname" value="">
+          <input type="text" id="firstname" tabindex="1" name="firstname" aria-label="Champs prénom">
           <div id="message-one" class="message-fn-wrong"></div>
         </div>
         <div>
           <label>Nom</label>
-          <input type="text" tabindex="1" id="lastname" name="lastname">
+          <input type="text" tabindex="1" id="lastname" name="lastname" aria-label="Champs nom">
           <div id="message-two" class="message-fn-wrong"></div>
         </div>
         <div>
           <label>Mail</label>
-          <input type="email" tabindex="1" id="mail" name="mail">
+          <input type="email" tabindex="1" id="mail" name="mail" aria-label="Champs email">
           <div id="message-three" class="message-fn-wrong"></div>
         </div>
         <div>
           <label>Message</label>
-          <textarea name="message" tabindex="1" id="message" cols="10" rows="5"></textarea>
+          <textarea name="message" tabindex="1" id="message" cols="10" rows="5" aria-label="Champs message"></textarea>
           <div id="message-four" class="message-fn-wrong"></div>
         </div>
         <button type="submit" tabindex="1" id="btn-submit" class="contact_button">Envoyer</button>
@@ -83,13 +83,13 @@
     <!-- PROFIL PHOTOGRAPHE  -->
     <div id="section-header">
     </div>
+    <!-- DROPDOWN  -->
     <div class="div-container-dropdown">
-      <!-- DROPDOWN  -->
-      <div class="dropdown">
+      <div class="dropdown" aria-label="menu accordéon">
         <label id="dropdownlabel">Trier par</label>
         <div>
           <div tabindex="1" class="select">
-            <span class="selected">Date</span>
+            <span class="selected" aria-label="menu accordéon">Date</span>
             <div id="caret" class="caret"></div>
           </div>
           <ul class="menu">

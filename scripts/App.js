@@ -96,7 +96,6 @@ class App {
 
         // Mettre totalLike en dehors de la fonction pour qu'il soit accessible à tous 
         let totalLike = 0;
-
         function displayLikes() {
             // on prend tous les likes du dom 
             const nbrLikes = document.querySelectorAll(".singleLike");

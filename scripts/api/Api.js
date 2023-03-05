@@ -1,5 +1,4 @@
 // La connexion au fichier json 
-
 class Api {
     constructor(url) {
         this._url = url

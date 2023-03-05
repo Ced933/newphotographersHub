@@ -160,6 +160,10 @@ form input {
     object-fit: cover;
 }
 
+#h4-form {
+    font-size: 50px;
+}
+
 /*-------------------------------------------------------- container img gallery ----------------------------------  */
 #container-gallery {
     display: grid;
